@@ -1,0 +1,55 @@
+<div>
+  <acme-navbar creation-date="main.creationDate"></acme-navbar>
+</div>
+<div class="container">
+  <div class="row">
+    <form role="form" ng-submit="show.submit(form)" name="form">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6 form-group">
+          <label class="control-label">Nombre</label>
+          <input class="form-control" ng-model="show.form.name" name="name" required>
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6 form-group">
+          <label class="control-label">Email</label>
+          <input class="form-control" ng-model="show.form.email" name="email" type="email" required>
+        </div>
+      </div>
+
+      <div class="row col-md-offset-9 pull-right">
+        <button class="btn btn-block btn-default btn-watermelon" type="submit">
+          Guardar
+        </button>
+      </div>
+      <input type="hidden" ng-model="show.form._id" name="_id">
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-6">
+      <input type="text" class="form-control" placeholder="Buscar usuario" ng-model="search">
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6"></div>
+  </div>
+  <div class="row">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="user in show.users">
+
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button ng-click="show.edit(user)" class="btn btn-default btn-sm">Editar</button>
+          <button ng-click="show.delete(user)" class="btn btn-danger btn-sm">Eliminar</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
